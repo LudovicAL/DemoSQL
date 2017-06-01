@@ -41,25 +41,31 @@
 			exit;
 	}
 	try {
-		$con = mysqli_connect("mysql4.gear.host", "cvdata", "Xq2A9FVz~EU_", "cvdata", 3306);
+		//Connexion à la base de données
+		$server="mysql4.gear.host";	//Serveur
+		$user="cvdata";	//Login
+		$passwd="Xq2A9FVz~EU_";	//Mot de passe
+		//La base de données étant en mode lecture uniquement, le partage des codes d'accès est sans danger.
+		$con = mysqli_connect($server, $user, $passwd, $user, 3306);
+		//Vérification du succès de la connexion
 		if (!$con) {
+			/*
 			echo "Error: Unable to connect to MySQL." . PHP_EOL;
 			echo "Debugging errno: " . mysqli_connect_errno() . PHP_EOL;
 			echo "Debugging error: " . mysqli_connect_error() . PHP_EOL;
 			exit;
-
-			/*
-			die('Impossible de se connecter à la base de données.' . mysqli_error($con));
 			*/
+			die('Impossible de se connecter à la base de données.' . mysqli_error($con));
 		}
+		//Exécution de la requête SQL
 		mysqli_select_db($con, "cvdata");
 		$result = mysqli_query($con, $req);
-
 		if ($result->num_rows > 0) {
 			retourMessage("Plenty results", "echec");
 		} else {
 			retourMessage("0 result", "echec");
 		}
+		//Fermeture de la base de données
 		mysqli_close($conn);
 	} catch (Exception $e) {
 		retourMessage("Une erreur est survenue. Veuillez reessayer.", "echec");
