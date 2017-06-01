@@ -40,6 +40,9 @@
 			retourMessage("La requête fournie est invalide.", "echec");
 			exit;
 	}
+	
+	retourMessage("Test1: " + $req, "echec");
+	exit;
 
 	try {
 		//Connexion à la base de données
