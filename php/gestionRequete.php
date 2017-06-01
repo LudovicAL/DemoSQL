@@ -37,7 +37,7 @@
 			$req="";
 			break;
 		default:
-			retourMessage("La requête fournie est invalide.", "echec");
+			retourMessage("La requête fournie est invalide. " + $_POST['requete'], "echec");
 			exit;
 	}
 
