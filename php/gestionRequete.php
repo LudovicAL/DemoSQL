@@ -45,8 +45,10 @@
 		$server="mysql4.gear.host";	//Serveur
 		$user="visitor";	//Login
 		$passwd="Port-Folio!";	//Mot de passe
-		//La base de données étant en mode lecture uniquement, le partage des codes d'accès est sans danger.
+		//Les codes d'accès fournis permettent un accès à la base de données en mode lecture seulement.
 		$con = mysqli_connect($server, $user, $passwd, $user);
+		retourMessage("Connexion finie.", "echec");
+		exit;
 		//Vérification du succès de la connexion
 		if (!$con) {
 			/*
@@ -57,8 +59,6 @@
 			*/
 			die('Impossible de se connecter à la base de données.' . mysqli_error($con));
 		}
-		retourMessage("Connexion réussie.", "echec");
-		exit;
 		//Exécution de la requête SQL
 		mysqli_select_db($con, "cvdata");
 		$result = mysqli_query($con, $req);
