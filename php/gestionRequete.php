@@ -42,24 +42,31 @@
 	}
 	try {
 		//Connexion à la base de données
-		$sql_serveur="mysql4.gear.host";	//Serveur SQL
-		$sql_user="cvdata";	//Login SQL
-		$sql_passwd="Xq2A9FVz~EU_";	//Mot de passe SQL
-		$db_link = @mysql_connect($sql_serveur, $sql_user, $sql_passwd, $sql_user);
-		retourMessage($req, "echec");
-		exit;
-		if(!$db_link) {	//Si la connexion échoue
-			retourMessage("Connexion impossible à la base de données.", "echec");
+		$server="mysql4.gear.host";	//Serveur
+		$user="visitor";	//Login
+		$passwd="Port-Folio!";	//Mot de passe
+		//La base de données étant en mode lecture uniquement, le partage des codes d'accès est sans danger.
+		$con = mysqli_connect($server, $user, $passwd, $user);
+		//Vérification du succès de la connexion
+		if (!$con) {
+			/*
+			echo "Error: Unable to connect to MySQL." . PHP_EOL;
+			echo "Debugging errno: " . mysqli_connect_errno() . PHP_EOL;
+			echo "Debugging error: " . mysqli_connect_error() . PHP_EOL;
 			exit;
+			*/
+			die('Impossible de se connecter à la base de données.' . mysqli_error($con));
 		}
-		//Exécution de la requête
-		$requete=mysql_query($req, $db_link) or die(mysql_error());		
-		if (mysql_num_rows($requete) <> 0) {	//S'il y a au moins une entrée
-			//retourDonnees($requete, "succes");
-			retourMessage("Réussite!", "echec");
-		} else {	//S'il n'y a aucune entrée
-			retourMessage("La requête n'a retourné aucune donnée.", "echec");
+		//Exécution de la requête SQL
+		mysqli_select_db($con, "cvdata");
+		$result = mysqli_query($con, $req);
+		if ($result->num_rows > 0) {
+			retourMessage("Plenty results", "echec");
+		} else {
+			retourMessage("0 result", "echec");
 		}
+		//Fermeture de la base de données
+		mysqli_close($conn);
 	} catch (Exception $e) {
 		retourMessage("Une erreur est survenue. Veuillez reessayer.", "echec");
 	}

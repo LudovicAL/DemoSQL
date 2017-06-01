@@ -33,7 +33,7 @@ function requeteServeur() {
 			// code for IE6, IE5
 			xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
 		}
-		xmlhttp.open("GET", "php/gestionRequeteBis.php?requete="+donnees, true);
+		xmlhttp.open("GET", "php/gestionRequete.php?requete="+donnees, true);
 		//Méthode que écoute les changements d'état
 		xmlhttp.onreadystatechange = function(){
 			if (this.readyState == 4 && this.status == 200) {
