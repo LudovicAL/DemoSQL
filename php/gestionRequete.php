@@ -46,7 +46,7 @@
 		$sql_serveur="mysql4.gear.host";	//Serveur SQL
 		$sql_user="cvdata";	//Login SQL
 		$sql_passwd="Xq2A9FVz~EU_";	//Mot de passe SQL
-		$db_link = @mysql_connect($sql_serveur, $sql_user, $sql_passwd);	
+		$db_link = @mysql_connect($sql_serveur, $sql_user, $sql_passwd, $sql_user);	
 		if(!$db_link) {	//Si la connexion échoue
 			retourMessage("Connexion impossible à la base de données.", "echec");
 			exit;
