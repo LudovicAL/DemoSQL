@@ -1,15 +1,23 @@
- <!DOCTYPE html>
+<!DOCTYPE html>
 <html>
-<body>
-	<input type="button" value="Emplois" onClick="fonction('parametre')">
-	<input type="button" value="Études" onClick="fonction('parametre')">
-	<input type="button" value="Événements" onClick="fonction('parametre')">
-	<textarea rows="2" class="large" disabled></textarea>
-	<input type="button" value="Soumettre" onClick="fonction('parametre')">
+	<head>
+		<meta charset="utf-8">
+		<link rel="stylesheet" href="css/stylesheet.css">
+		<meta name="description" content="Démonstration d'exécution d'une requête SQL via Ajax.">
+		<title>Ludovic Aubut-Lussier - Démonstration SQL</title>
+		<script src="js/requete.js"></script>
+	</head>
 	
-<?php
-echo "Hello aaa world";
-?>
-
-</body>
+	<body>
+		<input type="hidden" id="selection" value="">
+		<input type="button" value="Emplois" onClick="ecrireRequete('emplois')">
+		<input type="button" value="Études" onClick="ecrireRequete('etudes')">
+		<input type="button" value="Événements" onClick="ecrireRequete('evenements')">
+		<br>
+		<textarea rows="2" class="large" disabled></textarea>
+		<br>
+		<input type="button" value="Soumettre" onClick="fonction('parametre')">
+	</body>
+	
+	<script>ecrireRequete('emplois');</script>
 </html> 

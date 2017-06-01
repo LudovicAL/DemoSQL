@@ -3,12 +3,15 @@ function ecrireRequete(expression) {
 	switch(expression) {
     case "emplois":
         $('#champRequete').val("SELECT idemplois, compagnie, titre, debut, fin, description FROM `cvdata`.`emplois`;");
+		$('#selection').val("1");
         break;
     case "etudes":
         $('#champRequete').val("SELECT idetudes, ecole, programme, debut, fin FROM `cvdata`.`etudes`;");
+		$('#selection').val("2");
         break;
 	case "evenements":
         $('#champRequete').val("Événements");
+		$('#selection').val("3");
         break;
     default:
         //Ne rien faire
@@ -17,7 +20,7 @@ function ecrireRequete(expression) {
 
 //Envoit la requête au serveur
 function requeteServeur() {
-	var	donnees= $('#champRequete').val();
+	var	donnees= $('#selection').val();
 	if (!donnees || 0 === donnees.length) {
 		alert("Veuillez d'abord saisir une requête SQL.");
 		return;

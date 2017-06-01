@@ -25,6 +25,22 @@
 		echo "</xml>";
 	}	
 
+	//Identification de la requête à effectuer
+	switch ($_POST['requete']) {
+		case "1":
+			$req="SELECT idemplois, compagnie, titre, debut, fin, description FROM `cvdata`.`emplois`;";
+			break;
+		case "2":
+			$req="SELECT idetudes, ecole, programme, debut, fin FROM `cvdata`.`etudes`;";
+			break;
+		case "3":
+			$req="";
+			break;
+		default:
+			retourMessage("La requête fournie est invalide.", "echec");
+			exit;
+	}
+
 	try {
 		//Connexion à la base de données
 		$sql_serveur="mysql4.gear.host";	//Serveur SQL
@@ -36,7 +52,6 @@
 			exit;
 		}
 		//Exécution de la requête
-		$req=$_POST['requete'];
 		$requete=mysql_query($req, $db_link) or die(mysql_error());		
 		if (mysql_num_rows($requete) <> 0) {	//S'il y a au moins une entrée
 			//retourDonnees($requete, "succes");
