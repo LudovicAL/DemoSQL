@@ -23,7 +23,7 @@
 			echo "</membre>\n";
 		}
 		echo "</xml>";
-	}	
+	}
 
 	//Identification de la requête à effectuer
 	switch ($_GET['requete']) {
