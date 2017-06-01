@@ -26,7 +26,7 @@
 	}	
 
 	//Identification de la requête à effectuer
-	switch ($_POST['requete']) {
+	switch ($_GET['requete']) {
 		case "1":
 			$req="SELECT idemplois, compagnie, titre, debut, fin, description FROM `cvdata`.`emplois`;";
 			break;
@@ -37,7 +37,7 @@
 			$req="";
 			break;
 		default:
-			retourMessage("La requête fournie est invalide. " + $_POST['requete'], "echec");
+			retourMessage("La requête fournie est invalide.", "echec");
 			exit;
 	}
 
