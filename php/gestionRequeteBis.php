@@ -46,7 +46,7 @@
 		$user="cvdata";	//Login
 		$passwd="Xq2A9FVz~EU_";	//Mot de passe
 		//La base de données étant en mode lecture uniquement, le partage des codes d'accès est sans danger.
-		$con = mysqli_connect($server, $user, $passwd, $user, 3306);
+		$con = mysqli_connect($server, $user, $passwd, $user);
 		//Vérification du succès de la connexion
 		if (!$con) {
 			/*
