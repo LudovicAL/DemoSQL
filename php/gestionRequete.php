@@ -57,6 +57,8 @@
 			*/
 			die('Impossible de se connecter à la base de données.' . mysqli_error($con));
 		}
+		retourMessage("Connexion réussie.", "echec");
+		exit;
 		//Exécution de la requête SQL
 		mysqli_select_db($con, "cvdata");
 		$result = mysqli_query($con, $req);
