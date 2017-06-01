@@ -41,7 +41,7 @@
 			exit;
 	}
 	
-	retourMessage("Test1: ", "echec");
+	retourMessage($req, "echec");
 	exit;
 
 	try {
