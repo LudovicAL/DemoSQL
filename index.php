@@ -16,7 +16,7 @@
 		<br>
 		<textarea rows="2" id="champRequete" class="large" disabled></textarea>
 		<br>
-		<input type="button" value="Soumettre" onClick="fonction('parametre')">
+		<input type="button" value="Soumettre" onClick="requeteServeur()">
 	</body>
 	
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>

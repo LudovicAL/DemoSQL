@@ -22,7 +22,7 @@ function ecrireRequete(expression) {
 function requeteServeur() {
 	var	donnees= $('#selection').val();
 	if (!donnees || 0 === donnees.length) {
-		alert("Veuillez d'abord saisir une requête SQL.");
+		alert("Veuillez d'abord sélectionner l'une des requêtes SQL proposées.");
 		return;
 	}
 	try {
