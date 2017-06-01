@@ -46,7 +46,7 @@
 		$user="visitor";	//Login
 		$passwd="Port-Folio!";	//Mot de passe
 		//Les codes d'accès fournis permettent un accès à la base de données en mode lecture seulement.
-		$con = mysqli_connect($server, $user, $passwd, $user);
+		$con = mysqli_connect($server, $user, $passwd);
 		//Vérification du succès de la connexion
 		if (!$con) {
 			/*
