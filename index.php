@@ -14,7 +14,7 @@
 		<input type="button" value="Études" onClick="ecrireRequete('etudes')">
 		<input type="button" value="Événements" onClick="ecrireRequete('evenements')">
 		<br>
-		<textarea rows="2" class="large" disabled></textarea>
+		<textarea rows="2" id="champRequete" class="large" disabled></textarea>
 		<br>
 		<input type="button" value="Soumettre" onClick="fonction('parametre')">
 	</body>
