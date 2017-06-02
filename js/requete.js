@@ -117,9 +117,9 @@ function construireTableau(messageXML) {
 	for (var i = 0; i < max; i++) {
 		var tr = body.insertRow(rowNum);
 		var cell5 = tr.insertCell(0);
-		if (commentaire[rowNum].innerHTML) {
+		if (!estVide(cell5.innerHTML)) {
 			cell5.innerHTML = commentaire[rowNum].innerHTML;
-		}
+		}		
 		var cell4 = tr.insertCell(0);
 		cell4.innerHTML = fins[rowNum].innerHTML;
 		var cell3 = tr.insertCell(0);
@@ -130,4 +130,9 @@ function construireTableau(messageXML) {
 		cell1.innerHTML = organisations[rowNum].innerHTML;
 		rowNum++;
 	}
+}
+
+//Vérifie si une string est vide
+function estVide(str) {
+    return (!str || 0 === str.length);
 }
