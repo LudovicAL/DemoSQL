@@ -2,15 +2,15 @@
 function ecrireRequete(expression) {
 	switch(expression) {
     case "emplois":
-        $('#champRequete').val("SELECT idemplois, compagnie, titre, debut, fin, description FROM `cvdata`.`emplois`;");
+        $('#champRequete').val("SELECT * FROM cvdata.emplois;");
 		$('#selection').val("1");
         break;
     case "etudes":
-        $('#champRequete').val("SELECT idetudes, ecole, programme, debut, fin FROM `cvdata`.`etudes`;");
+        $('#champRequete').val("SELECT * FROM cvdata.etudes;");
 		$('#selection').val("2");
         break;
 	case "evenements":
-        $('#champRequete').val("Événements");
+        $('#champRequete').val("SELECT * FROM cvdata.evenements;");
 		$('#selection').val("3");
         break;
     default:

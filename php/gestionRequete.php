@@ -33,13 +33,13 @@
 	$q=$_GET['requete'];
 	switch ($q) {
 		case "1":
-			$req="SELECT idemplois, compagnie, titre, debut, fin, description FROM `cvdata`.`emplois`;";
+			$req="SELECT * FROM cvdata.emplois;";
 			break;
 		case "2":
-			$req="SELECT idetudes, ecole, programme, debut, fin FROM `cvdata`.`etudes`;";
+			$req="SELECT * FROM cvdata.etudes;";
 			break;
 		case "3":
-			$req="";
+			$req="SELECT * FROM cvdata.evenements;";
 			break;
 		default:
 			retourMessage("La requête fournie est invalide.", "echec");
