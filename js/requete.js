@@ -72,9 +72,9 @@ function reponseServeur(reponse){
 
 //Construit le tableau contenant les informations envoyées par le serveur
 function construireTableau(messageXML) {
-	var tableau = document.getElementById(tableau);
+	var tableau = document.getElementById("tableau");
 	//Nettoyage de l'ancien tableau
-	$('#tableau').empty();
+	$(tableau).empty();
 	//Insertion des titres
 	var header = tableau.createTHead();
 	var hRow = header.insertRow(0);
