@@ -107,10 +107,10 @@ function construireTableau(messageXML) {
 	}
 	//Insertion du contenu
 	var organisations = messageXML.getElementsByTagName("organisation");
-	var titres = messageXML.getElementsByTagName("titres");
-	var debuts = messageXML.getElementsByTagName("debuts");
-	var fins = messageXML.getElementsByTagName("fins");
-	var commentaires = messageXML.getElementsByTagName("commentaires");
+	var titres = messageXML.getElementsByTagName("titre");
+	var debuts = messageXML.getElementsByTagName("debut");
+	var fins = messageXML.getElementsByTagName("fin");
+	var commentaires = messageXML.getElementsByTagName("commentaire");
 	var max = titres.length;
 	var body = tableau.createTBody();
 	var rowNum = 0;
