@@ -144,8 +144,8 @@ function insererTexte(texte, destination) {
 //Affiche ou cache l'icône de chargement
 function loader(affichage) {
 	if (affichage) {
-		$('@loader').css("display", "block");
+		$('.loader').css("display", "block");
 	} else {
-		$('@loader').css("display", "none");
+		$('.loader').css("display", "none");
 	}
 }
