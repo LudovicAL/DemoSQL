@@ -87,17 +87,17 @@ function construireTableau(messageXML) {
 	hCell4.innerHTML = "Fin";
 	msg = messageXML.getElementsByTagName("message")[0].firstChild.nodeValue;
 	switch (msg) {
-		case 1:
+		case "1":
 			hCell1.innerHTML = "Compagnie";
 			hCell2.innerHTML = "Titre";
 			hCell5.innerHTML = "Description";
 			break;
-		case 2:
+		case "2":
 			hCell1.innerHTML = "Institution";
 			hCell2.innerHTML = "Programme";
 			hCell5.innerHTML = "Commentaire";
 			break;
-		case 3:
+		case "3":
 			hCell1.innerHTML = "Organisation";
 			hCell2.innerHTML = "Titre";
 			hCell5.innerHTML = "Produit";
