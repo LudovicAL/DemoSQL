@@ -17,7 +17,7 @@
 		<textarea rows="1" id="champRequete" class="large" disabled></textarea>
 		<br>
 		<input type="button" value="Soumettre" onClick="requeteServeur()">
-		<span class="loader"></span> 
+		<div class="loader"></div> 
 		<br>
 		<br>
 		<table id="tableau">
