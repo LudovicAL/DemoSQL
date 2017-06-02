@@ -18,6 +18,11 @@ table, th, td {
 thead td {
 	font-weight: bold;
 	text-align: center;
+	
+}
+
+th {
+	background-color: rgb(255, 80, 80);
 }
 
 tr:nth-child(even) {

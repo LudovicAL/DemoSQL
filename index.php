@@ -19,6 +19,7 @@
 		<input type="button" value="Soumettre" onClick="requeteServeur()">
 		<div id="loader"></div> 
 		<br>
+		<br>
 		<table id="tableau">
 		</table>
 	</body>
