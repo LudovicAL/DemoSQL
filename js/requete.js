@@ -61,12 +61,50 @@ function reponseServeur(reponse){
 			break;
 		//Si le message reçu indique un succès
 		case "succes":
-			msg = messageXML.getElementsByTagName("message")[0].firstChild.nodeValue;
-			alert(msg);
-			break;	
+			construireTableau(messageXML);
+			break;
 		//Si le message est indéfini
 		default :
 			alert("Il y a eu une erreur.");
 			break;
 	}
+}
+
+//Construit le tableau contenant les informations envoyées par le serveur
+function construireTableau(messageXML) {
+	var tableau = document.getElementById(tableau);
+	//Nettoyage de l'ancien tableau
+	$tableau.empty();
+	//Insertion des titres
+	var header = tableau.createTHead();
+	var hRow = header.insertRow(0);
+	var hCell5 = hRow.insertCell(0);
+	var hCell4 = hRow.insertCell(0);
+	var hCell3 = hRow.insertCell(0);
+	var hCell2 = hRow.insertCell(0);
+	var hCell1 = hRow.insertCell(0);
+	hCell3.innerHTML = "Debut";
+	hCell4.innerHTML = "Fin";
+	msg = messageXML.getElementsByTagName("message")[0].firstChild.nodeValue;
+	switch (msg) {
+		case 1:
+			hCell1.innerHTML = "Compagnie";
+			hCell2.innerHTML = "Titre";
+			hCell5.innerHTML = "Description";
+			break;
+		case 2:
+			hCell1.innerHTML = "Institution";
+			hCell2.innerHTML = "Programme";
+			hCell5.innerHTML = "Commentaire";
+			break:
+		case 3:
+			hCell1.innerHTML = "Organisation";
+			hCell2.innerHTML = "Titre";
+			hCell5.innerHTML = "Produit";
+			break;
+		default:
+			//Ne rien faire
+	}
+	//Insertion du contenu
+	
 }
