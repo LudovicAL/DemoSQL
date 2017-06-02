@@ -17,9 +17,14 @@
 		echo "<xml>\n";
 		echo "<action>$action</action>\n";
 		echo "<message>$q</message>";
-		while ($row = $stmt->fetch()) {
+		$stmt->setFetchMode(PDO::FETCH_ASSOC);
+		while($row = $stmt->fetch()) {
 			echo "<item>\n";
-			echo($row);
+			echo "<organisation>" . $row['organisation'] . "</organisation>\n";
+			echo "<titre>" . $row['titre'] . "</titre>\n";
+			echo "<debut>" . $row['debut'] . "</debut>\n";
+			echo "<fin>" . $row['fin'] . "</fin>\n";
+			echo "<commentaire>" . $row['commentaire'] . "</commentaire>\n";
 			echo "</item>\n";
 		}
 		/*
@@ -59,6 +64,7 @@
 		$passwd="Port-Folio!";	//Mot de passe
 		$conn = new PDO("mysql:host=$server", $user, $passwd);
 		$conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+		//$conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_SILENT);
 		//Préparation de la reqête SQL
 		$stmt = $conn->prepare($req);
 		//Exécution de la requête SQL
