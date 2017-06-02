@@ -27,17 +27,6 @@
 			echo "<commentaire>" . $row['commentaire'] . "</commentaire>\n";
 			echo "</item>\n";
 		}
-		/*
-		while ($row = mysql_fetch_object($infos)) {
-			echo "<item>\n";
-			echo "<organisation>$row->organisation</organisation>\n";
-			echo "<titre>$row->titre</titre>\n";
-			echo "<debut>$row->debut</debut>\n";
-			echo "<fin>$row->fin</fin>\n";
-			echo "<commentaire>$row->commentaire</commentaire>\n";
-			echo "</item>\n";
-		}
-		*/
 		echo "</xml>";
 	}
 
@@ -63,8 +52,8 @@
 		$user="visitor";	//Login
 		$passwd="Port-Folio!";	//Mot de passe
 		$conn = new PDO("mysql:host=$server", $user, $passwd);
-		$conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-		//$conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_SILENT);
+		$conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_SILENT);
+		//$conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 		//Préparation de la reqête SQL
 		$stmt = $conn->prepare($req);
 		//Exécution de la requête SQL
@@ -74,36 +63,4 @@
     	retourMessage($e->getMessage(), "echec");
     }
 	$conn = null;
-		
-		
-		/*
-		//Connexion à la base de données
-		$server="mysql4.gear.host";	//Serveur
-		$user="visitor";	//Login
-		$passwd="Port-Folio!";	//Mot de passe
-		//Les codes d'accès fournis permettent un accès à la base de données en mode lecture seulement.
-		$con = mysqli_connect($server, $user, $passwd);
-		//Vérification du succès de la connexion
-		if (!$con) {
-			//echo "Error: Unable to connect to MySQL." . PHP_EOL;
-			//echo "Debugging errno: " . mysqli_connect_errno() . PHP_EOL;
-			//echo "Debugging error: " . mysqli_connect_error() . PHP_EOL;
-			//exit;
-			die('Impossible de se connecter à la base de données.' . mysqli_error($con));
-		}
-		//Exécution de la requête SQL
-		mysqli_select_db($con, "cvdata");
-		$result = mysqli_query($con, $req);
-		if ($result->num_rows > 0) {
-			retourDonnees($q, $result, "succes");
-		} else {
-			retourMessage("La requête n'a pas retourné de résultats.", "echec");
-		}
-		//Fermeture de la base de données
-		mysqli_close($con);
-		
-	} catch (Exception $e) {
-		retourMessage("Une erreur est survenue. Veuillez réessayer.", "echec");
-	}
-	*/
 ?>
