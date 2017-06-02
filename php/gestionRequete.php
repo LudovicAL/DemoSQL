@@ -46,6 +46,8 @@
 			retourMessage("La requête fournie est invalide.", "echec");
 			exit;
 	}
+	retourMessage("Hmmm...", "echec");
+	exit;
 	try {
 		//Connexion à la base de données
 		$server="mysql4.gear.host";	//Serveur
@@ -54,8 +56,6 @@
 		//Les codes d'accès fournis permettent un accès à la base de données en mode lecture seulement.
 		$con = mysqli_connect($server, $user, $passwd);
 		//Vérification du succès de la connexion
-		retourMessage("Hmmm...", "echec");
-		exit;
 		if (!$con) {
 			/*
 			echo "Error: Unable to connect to MySQL." . PHP_EOL;
