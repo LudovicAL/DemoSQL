@@ -96,7 +96,7 @@ function construireTableau(messageXML) {
 			hCell1.innerHTML = "Institution";
 			hCell2.innerHTML = "Programme";
 			hCell5.innerHTML = "Commentaire";
-			break:
+			break;
 		case 3:
 			hCell1.innerHTML = "Organisation";
 			hCell2.innerHTML = "Titre";
