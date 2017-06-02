@@ -56,7 +56,7 @@
 		$server="mysql4.gear.host";	//Serveur
 		$user="visitor";	//Login
 		$passwd="Port-Folio!";	//Mot de passe
-		$conn = new PDO("mysql:host=$server;dbname=$user", $user, $passwd);
+		$conn = new PDO("mysql:host=$server", $user, $passwd);
 		$conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 		//Préparation de la reqête SQL
 		$stmt = $conn->prepare($req);
