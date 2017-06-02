@@ -117,22 +117,24 @@ function construireTableau(messageXML) {
 	for (var i = 0; i < max; i++) {
 		var tr = body.insertRow(rowNum);
 		var cell5 = tr.insertCell(0);
-		if (!estVide(cell5.innerHTML)) {
-			cell5.innerHTML = commentaire[rowNum].innerHTML;
-		}		
+		insererTexte(commentaires[rowNum].innerHTML, cell5);		
 		var cell4 = tr.insertCell(0);
-		cell4.innerHTML = fins[rowNum].innerHTML;
+		insererTexte(fins[rowNum].innerHTML, cell4);
 		var cell3 = tr.insertCell(0);
-		cell3.innerHTML = debuts[rowNum].innerHTML;
+		insererTexte(debuts[rowNum].innerHTML, cell3);
 		var cell2 = tr.insertCell(0);
-		cell2.innerHTML = titres[rowNum].innerHTML;
+		insererTexte(titres[rowNum].innerHTML, cell2);
 		var cell1 = tr.insertCell(0);
-		cell1.innerHTML = organisations[rowNum].innerHTML;
+		insererTexte(organisations[rowNum].innerHTML, cell1);
 		rowNum++;
 	}
 }
 
-//Vérifie si une string est vide
-function estVide(str) {
-    return (!str || 0 === str.length);
+//Vérifie qu'une chaîne de texte n'est pas vide avant de l'insérer
+function insererTexte(texte, destination) {
+    if (!texte || 0 === texte.length) {
+		return;
+	} else {
+		destination.innerHTML = texte;
+	}
 }
