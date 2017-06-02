@@ -17,9 +17,10 @@
 		echo "<xml>\n";
 		echo "<action>$action</action>\n";
 		echo "<message>$q</message>";
-		$result = $stmt->setFetchMode(PDO::FETCH_ASSOC);
-		foreach(new TableRows(new RecursiveArrayIterator($stmt->fetchAll())) as $k=>$v) {
-			echo $v;
+		while ($row = $stmt->fetch()) {
+			echo "<item>\n";
+			echo($row);
+			echo "</item>\n";
 		}
 		/*
 		while ($row = mysql_fetch_object($infos)) {
