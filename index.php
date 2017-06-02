@@ -17,6 +17,7 @@
 		<textarea rows="1" id="champRequete" class="large" disabled></textarea>
 		<br>
 		<input type="button" value="Soumettre" onClick="requeteServeur()">
+		<span class="loader"></span> 
 		<br>
 		<br>
 		<table id="tableau">
@@ -25,4 +26,5 @@
 	
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 	<script>ecrireRequete('emplois');</script>
+	<script>loader(false);</script>
 </html> 

@@ -41,6 +41,7 @@ function requeteServeur() {
 			}
 		};
 		xmlhttp.send();
+		loader(true);
 	} catch(z) {
 		return;
 	}
@@ -48,6 +49,7 @@ function requeteServeur() {
 
 //Recoit de la réponse du serveur
 function reponseServeur(reponse){
+	loader(false);
 	var msg = "";
 	var messageXML = reponse.responseXML; 
 	var action = messageXML.getElementsByTagName("action")[0].firstChild.nodeValue;
@@ -136,5 +138,14 @@ function insererTexte(texte, destination) {
 		return;
 	} else {
 		destination.innerHTML = texte;
+	}
+}
+
+//Affiche ou cache l'icône de chargement
+function loader(affichage) {
+	if (affichage) {
+		$('#loader').show();
+	} else {
+		$('#loader').hide();
 	}
 }
