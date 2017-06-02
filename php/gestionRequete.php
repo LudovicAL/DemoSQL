@@ -67,7 +67,8 @@
 		mysqli_select_db($con, "cvdata");
 		$result = mysqli_query($con, $req);
 		if ($result->num_rows > 0) {
-			retourDonnees($q, $result, "succes");
+			//retourDonnees($q, $result, "succes");
+			retourMessage("Hmmm...", "echec");
 		} else {
 			retourMessage("La requête n'a pas retourné de résultats.", "echec");
 		}
