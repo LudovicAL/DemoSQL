@@ -17,8 +17,6 @@
 		echo "<xml>\n";
 		echo "<action>$action</action>\n";
 		echo "<message>$q</message>";
-		$row = mysql_fetch_object($infos)
-		/*
 		while ($row = mysql_fetch_object($infos)) {
 			echo "<item>\n";
 			echo "<organisation>$row->organisation</organisation>\n";
@@ -28,11 +26,9 @@
 			echo "<commentaire>$row->commentaire</commentaire>\n";
 			echo "</item>\n";
 		}
-		*/
 		echo "</xml>";
 	}
-	retourMessage("Hmmm...", "echec");
-	exit;
+
 	//Identification de la requête à effectuer
 	$q=$_GET['requete'];
 	switch ($q) {
