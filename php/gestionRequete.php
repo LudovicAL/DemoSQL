@@ -11,12 +11,17 @@
 	}
 
 	//Retour d'un message complexe
-	function retourDonnees($q, $infos, $action){
+	function retourDonnees($q, $stmt, $action){
 		header ("Content-Type: text/xml");
 		echo "<?xml version=\"1.0\" encoding=\"ISO-8859-1\"?>\n";
 		echo "<xml>\n";
 		echo "<action>$action</action>\n";
 		echo "<message>$q</message>";
+		$result = $stmt->setFetchMode(PDO::FETCH_ASSOC);
+		foreach(new TableRows(new RecursiveArrayIterator($stmt->fetchAll())) as $k=>$v) {
+			echo $v;
+		}
+		/*
 		while ($row = mysql_fetch_object($infos)) {
 			echo "<item>\n";
 			echo "<organisation>$row->organisation</organisation>\n";
@@ -26,6 +31,7 @@
 			echo "<commentaire>$row->commentaire</commentaire>\n";
 			echo "</item>\n";
 		}
+		*/
 		echo "</xml>";
 	}
 
@@ -50,16 +56,32 @@
 		$server="mysql4.gear.host";	//Serveur
 		$user="visitor";	//Login
 		$passwd="Port-Folio!";	//Mot de passe
+		$conn = new PDO("mysql:host=$server;dbname=$user", $user, $passwd);
+		$conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+		//Préparation de la reqête SQL
+		$stmt = $conn->prepare($req);
+		//Exécution de la requête SQL
+		$stmt->execute();
+		retourDonnees($q, $stmt, "succes");
+	catch(PDOException $e) {
+    	retourMessage($e->getMessage(), "echec");
+    }
+	$conn = null;
+		
+		
+		/*
+		//Connexion à la base de données
+		$server="mysql4.gear.host";	//Serveur
+		$user="visitor";	//Login
+		$passwd="Port-Folio!";	//Mot de passe
 		//Les codes d'accès fournis permettent un accès à la base de données en mode lecture seulement.
 		$con = mysqli_connect($server, $user, $passwd);
 		//Vérification du succès de la connexion
 		if (!$con) {
-			/*
-			echo "Error: Unable to connect to MySQL." . PHP_EOL;
-			echo "Debugging errno: " . mysqli_connect_errno() . PHP_EOL;
-			echo "Debugging error: " . mysqli_connect_error() . PHP_EOL;
-			exit;
-			*/
+			//echo "Error: Unable to connect to MySQL." . PHP_EOL;
+			//echo "Debugging errno: " . mysqli_connect_errno() . PHP_EOL;
+			//echo "Debugging error: " . mysqli_connect_error() . PHP_EOL;
+			//exit;
 			die('Impossible de se connecter à la base de données.' . mysqli_error($con));
 		}
 		//Exécution de la requête SQL
@@ -72,7 +94,9 @@
 		}
 		//Fermeture de la base de données
 		mysqli_close($con);
+		
 	} catch (Exception $e) {
 		retourMessage("Une erreur est survenue. Veuillez réessayer.", "echec");
 	}
+	*/
 ?>
