@@ -54,6 +54,8 @@
 		//Les codes d'accès fournis permettent un accès à la base de données en mode lecture seulement.
 		$con = mysqli_connect($server, $user, $passwd);
 		//Vérification du succès de la connexion
+		retourMessage("Hmmm...", "echec");
+		exit;
 		if (!$con) {
 			/*
 			echo "Error: Unable to connect to MySQL." . PHP_EOL;
@@ -67,8 +69,7 @@
 		mysqli_select_db($con, "cvdata");
 		$result = mysqli_query($con, $req);
 		if ($result->num_rows > 0) {
-			//retourDonnees($q, $result, "succes");
-			retourMessage("Hmmm...", "echec");
+			retourDonnees($q, $result, "succes");
 		} else {
 			retourMessage("La requête n'a pas retourné de résultats.", "echec");
 		}
