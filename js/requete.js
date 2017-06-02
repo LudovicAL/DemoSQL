@@ -106,5 +106,26 @@ function construireTableau(messageXML) {
 			//Ne rien faire
 	}
 	//Insertion du contenu
-	
+	var organisations = messageXML.getElementsByTagName("organisation");
+	var titres = messageXML.getElementsByTagName("titres");
+	var debuts = messageXML.getElementsByTagName("debuts");
+	var fins = messageXML.getElementsByTagName("fins");
+	var commentaires = messageXML.getElementsByTagName("commentaires");
+	var max = titres.length;
+	var body = tableau.createTBody();
+	var rowNum = 0;
+	for (var i = 0; i < max; i++) {
+		var tr = body.insertRow(rowNum);
+		var cell5 = tr.insertCell(0);
+		cell5.innerHTML = commentaire[rowNum].innerHTML;
+		var cell4 = tr.insertCell(0);
+		cell4.innerHTML = fins[rowNum].innerHTML;
+		var cell3 = tr.insertCell(0);
+		cell3.innerHTML = debuts[rowNum].innerHTML;
+		var cell2 = tr.insertCell(0);
+		cell2.innerHTML = titres[rowNum].innerHTML;
+		var cell1 = tr.insertCell(0);
+		cell1.innerHTML = organisations[rowNum].innerHTML;
+		rowNum++;
+	}
 }
