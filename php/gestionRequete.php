@@ -71,7 +71,7 @@
 			retourMessage("La requête n'a pas retourné de résultats.", "echec");
 		}
 		//Fermeture de la base de données
-		mysqli_close($conn);
+		mysqli_close($con);
 	} catch (Exception $e) {
 		retourMessage("Une erreur est survenue. Veuillez réessayer.", "echec");
 	}
