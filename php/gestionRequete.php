@@ -63,7 +63,7 @@
 		//Exécution de la requête SQL
 		$stmt->execute();
 		retourDonnees($q, $stmt, "succes");
-	catch(PDOException $e) {
+	} catch(PDOException $e) {
     	retourMessage($e->getMessage(), "echec");
     }
 	$conn = null;
