@@ -29,7 +29,8 @@
 		}
 		echo "</xml>";
 	}
-
+	retourMessage("Hmmm...", "echec");
+	exit;
 	//Identification de la requête à effectuer
 	$q=$_GET['requete'];
 	switch ($q) {
@@ -46,8 +47,6 @@
 			retourMessage("La requête fournie est invalide.", "echec");
 			exit;
 	}
-	retourMessage("Hmmm...", "echec");
-	exit;
 	try {
 		//Connexion à la base de données
 		$server="mysql4.gear.host";	//Serveur
