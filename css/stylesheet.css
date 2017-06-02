@@ -11,17 +11,16 @@ table {
 	width: 100%;
 }
 
-table, th, td {
+table, thead, td {
    border: 1px solid grey;
 }
 
 thead td {
 	font-weight: bold;
 	text-align: center;
-	
 }
 
-th {
+thead {
 	background-color: rgb(255, 80, 80);
 }
 
